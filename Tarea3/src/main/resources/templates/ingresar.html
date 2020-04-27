@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingreso de nuevo alumno</title>
+<style type="text/css">
+	form {
+		display: inline-block;
+		width: 200px;
+		margin: 5px;
+		align-text: left;
+	}
+	
+	.error{
+		color:red;
+	}
+	
+</style>
+<!-- <script src="js/validacion.js"></script> -->
+</head>
+<body>
+<div align="center">
+	<h1>Guardar Alumno </h1>
+
+<form	method="post" th:action="@{/form}" th:object="${usa}">
+	
+	<ul th:if="${#fields.hasErrors('*')}">
+		<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
+	</ul>
+	
+	
+	<p>Nombre: <input th:field="*{nombre}" placeholder="Ingresar nombre" ></p>
+	<p>Apellido: <input th:field="*{apellido}" placeholder="Ingresar apellido" ></p>
+	<p>Fecha: <input th:field="*{fecha}" type="date" min="2003-01-01 "placeholder="Ingresar fecha"  ></p>
+	<p>Nacimiento: <input th:field="*{nacimiento}" placeholder="Ingresar lugar de nacimiento" ></p>
+	<p>Instituto: <input th:field="*{Instuto}" placeholder="Ingresar instituto" ></p>
+	<p>Telefono: <input th:field="*{telefono}" placeholder="Ingresar telefono" ></p>
+	<p>Movil: <input th:field="*{movil}" placeholder="Ingresar movil" ></p>
+	<input type = "submit" value="Guardar Alumno">
+
+</form>	
+	
+
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 
+		<div align ="center">
+		<h1> Ingreso de nuevo alumno</h1>
+		<form action="post" th:action="@{/form}" th:object="${Usuario}" id="formulario" name="formulario">
+			
+			<p>ID: <input th:field="*{nombre}">
+				<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+			</p>
+			
+			<label>Apellido: </label>
+			<input type="text" id="apellido" name="apellido"/><br>
+			
+			<label>fecha:(dd-mm-yyyy)</label>
+			<input type="text" id="dia" name="dia" size=2/>
+			<input type="text" id="mes" name="mes" size= 2/>
+			<input type="text" id="anio" name="anio" size=4/><br>
+			
+			<label>Nacimiento: </label>
+			<input type="text" id="nacimiento" name="nacimiento"/><br>
+			
+			<label>Telefono de Casa: </label>
+			<input type="text" id="telefono" name="telefono"/><br>
+			
+			<label>Movil: </label>
+			<input type="text" id="movil" name="movil"/><br>
+			
+			<button type="submit" id="btn" name="btn" >Guardar Alumno</button>
+		</form>
+			
+	 -->
+	
+	
+
+</body>
+</html>
