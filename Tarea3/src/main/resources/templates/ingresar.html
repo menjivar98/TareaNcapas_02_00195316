@@ -22,11 +22,7 @@
 <div align="center">
 	<h1>Guardar Alumno </h1>
 
-<form	method="post" th:action="@{/form}" th:object="${usa}">
-	
-	<ul th:if="${#fields.hasErrors('*')}">
-		<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
-	</ul>
+<form	method="post" th:action="@{/form}" th:object="${usuario}">
 	
 	
 	<p>Nombre: <input th:field="*{nombre}" placeholder="Ingresar nombre" ></p>

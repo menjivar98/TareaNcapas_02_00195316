@@ -18,44 +18,32 @@ import com.uca.capas.domain.Usuario;
 @Controller
 public class MainController {
 
-	/*@RequestMapping("/ingresar")
-	public String index() {
-		return "ingresar";
-	}*/
-	
-	
-	/*@RequestMapping("/form")
-	public ModelAndView ingresar(@Valid HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-		String fecha = request.getParameter("fecha");
-		String nacimiento = request.getParameter("nacimiento");
-		String telefono = request.getParameter("telefono");
-		String movil = request.getParameter("movil");
-		
-		
-		
-		return mav;
-	
-	}*/
-	
-	@GetMapping({"/ingresar","/form"})
-	public String getUsuForm(@ModelAttribute("usa") Usuario usa) {return "ingresar";}
-	
-	@PostMapping("/form")
-	public String saveUsa( @Valid @ModelAttribute("usa") Usuario usa,BindingResult result,RedirectAttributes ra) {
-		
-		if(result.hasErrors()) {
-			return "ingresar";
+		@RequestMapping("/ingresar")
+		public ModelAndView ingresar() {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("usuario", new Usuario());
+			mav.setViewName("ingresar");
+			return mav;
 		}
 		
-		ra.addFlashAttribute("saveUsuario", usa);
-		return "redirect:/Exito";
-	}
-	
-	@GetMapping("/Exito")
-	public String exito() {
-		return "Exito";
-	}
+		@RequestMapping("/form")
+		public ModelAndView form(@Valid @ModelAttribute Usuario user, BindingResult result) {
+			ModelAndView mav = new ModelAndView();
+			
+			if(result.hasErrors()) {
+				mav.setViewName("Error");
+			}
+			else {
+				mav.addObject("user",user.getNombre());
+				mav.addObject("apel",user.getApellido());
+				mav.addObject("fecha",user.getFecha());
+				mav.addObject("naci",user.getNacimiento());
+				mav.addObject("ins",user.getInstuto());
+				mav.addObject("tel",user.getTelefono());
+				mav.addObject("mol",user.getMovil());
+				mav.setViewName("Exito");
+			}
+			
+			return mav;
+		}
 }

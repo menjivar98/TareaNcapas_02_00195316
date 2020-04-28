@@ -11,20 +11,23 @@ import javax.validation.constraints.Size;
 public class Usuario {
 	@Size(min = 1, max = 30, message ="El nombre tiene que tener como minimo 1 caracter y como maximo 30 caracters")
 	private String nombre;
-	@Size(min = 1, max = 30, message ="Tiene que tener como minimo 1 caracter y como maximo 30 caracters")
+	@Size(min = 1, max = 30, message ="El apellido tiene que tener como minimo 1 caracter y como maximo 30 caracters")
 	private String apellido;
 	
 	
 	private String fecha;
-	@Size(min = 1, max = 25, message ="Tiene que tener como minimo 1 caracter y como maximo 25 caracters")
+	
+	@Size(min = 1, max = 25, message ="El lugar de nacimiento tiene que tener como minimo 1 caracter y como maximo 25 caracters")
 	private String nacimiento;
-	@Size(min = 1, max = 100, message ="Tiene que tener como minimo 1 caracter y como maximo 100 caracters")
+	
+	@Size(min = 1, max = 100, message ="El campo Instuto tiene que tener como minimo 1 caracter y como maximo 100 caracters")
 	private String Instuto;
 	
-	@Min(8)
-	private Integer telefono;
-	@Min(8)
-	private Integer movil;
+	@Size(min = 8 , max= 8, message = "El campo telefono tiene que tener 8 caracteres exacto")
+	private String telefono;
+	
+	@Size(min = 8 , max= 8, message = "El campo movil tiene que tener 8 caracteres exacto")
+	private String movil;
 	
 	
 	
@@ -53,16 +56,16 @@ public class Usuario {
 	public void setNacimiento(String nacimiento) {
 		this.nacimiento = nacimiento;
 	}
-	public Integer getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public Integer getMovil() {
+	public String getMovil() {
 		return movil;
 	}
-	public void setMovil(Integer movil) {
+	public void setMovil(String movil) {
 		this.movil = movil;
 	}
 	

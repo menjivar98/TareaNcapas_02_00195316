@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--<ul th:if="${#fields.hasErrors('*')}">
+		<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
+	  	</ul>
+	  -->
+	  
+	 <form	method="post" th:action="@{/form}" th:object="${usuario}">
+	 	<ul th:if="${#fields.hasErrors('*')}">
+			<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
+	  	</ul>
+	  	
+	  	<a href="/ingresar">Regresar al formulario</a>
+	</form>
+</body>
+</html>
