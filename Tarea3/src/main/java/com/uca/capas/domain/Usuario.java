@@ -29,9 +29,6 @@ public class Usuario {
 	@Size(min = 8 , max= 8, message = "El campo movil tiene que tener 8 caracteres exacto")
 	private String movil;
 	
-	
-	
-	
 	public String getNombre() {
 		return nombre;
 	}
