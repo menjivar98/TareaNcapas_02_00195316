@@ -5,14 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!--<ul th:if="${#fields.hasErrors('*')}">
-		<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
-	  	</ul>
-	  -->
+	
 	  
 	 <form	method="post" th:action="@{/form}" th:object="${usuario}">
 	 	<ul th:if="${#fields.hasErrors('*')}">
-			<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
+			<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error" style="color: #FF0000">Input is incorrect</li>
 	  	</ul>
 	  	
 	  	<a href="/ingresar">Regresar al formulario</a>
