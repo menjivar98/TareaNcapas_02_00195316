@@ -13,34 +13,33 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.uca.capas.domain.Usuario;
+import com.uca.capas.domain.Articulo;
 
 @Controller
 public class MainController {
 
-		@RequestMapping("/ingresar")
+		@RequestMapping("/producto")
 		public ModelAndView ingresar() {
 			ModelAndView mav = new ModelAndView();
-			mav.addObject("usuario", new Usuario());
-			mav.setViewName("ingresar");
+			mav.addObject("articulo", new Articulo());
+			mav.setViewName("producto");
 			return mav;
 		}
 		
 		@RequestMapping("/form")
-		public ModelAndView form(@Valid @ModelAttribute Usuario user, BindingResult result) {
+		public ModelAndView form(@Valid @ModelAttribute Articulo art, BindingResult result) {
 			ModelAndView mav = new ModelAndView();
 			
 			if(result.hasErrors()) {
-				mav.setViewName("Error");
+				mav.setViewName("producto");
 			}
 			else {
-				mav.addObject("user",user.getNombre());
-				mav.addObject("apel",user.getApellido());
-				mav.addObject("fecha",user.getFecha());
-				mav.addObject("naci",user.getNacimiento());
-				mav.addObject("ins",user.getInstuto());
-				mav.addObject("tel",user.getTelefono());
-				mav.addObject("mol",user.getMovil());
+				mav.addObject("codigo", art.getCodigo());
+				mav.addObject("nombre", art.getNombre());
+				mav.addObject("marca", art.getMarca());
+				mav.addObject("descripcion", art.getDescripcion());
+				mav.addObject("existencias", art.getExistencias());
+				mav.addObject("date", art.getDate() );
 				mav.setViewName("Exito");
 			}
 			

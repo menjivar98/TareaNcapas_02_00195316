@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingreso de nuevo alumno</title>
+<style type="text/css">
+	form {
+		display: inline-block;
+		width: 200px;
+		margin: 5px;
+		align-text: left;
+	}
+	
+	.errors{
+		color:red;
+	}
+	
+</style>
+</head>
+<body>
+
+	<h1>Agregar Producto </h1>
+
+	<form	method="post" th:action="@{/form}" th:object="${articulo}">
+		<p>Codigo: <input th:field="*{codigo}" placeholder="Ingresar Codigo" ></p>
+		<span th:errors="*{codigo}" ></span>
+		<p>Nombre de Producto: <input th:field="*{nombre}" placeholder="Ingresar nombre de producto" ></p>
+		<span th:errors="*{nombre}" ></span>
+		<p>Marca: <input th:field="*{marca}" placeholder="Ingresar marca"  ></p>
+		<span th:errors="*{marca}" ></span>
+		<p>Descripcion: <input th:field="*{descripcion}" placeholder="Ingresar Descripcion" ></p>
+		<span th:errors="*{descripcion}" ></span>
+		<p>Existencias: <input th:field="*{existencias}" type="number" placeholder="Ingresar Existencias" ></p>
+		<span th:errors="*{existencias}" ></span>
+		<p>Fecha: <input th:field="*{date}"  "Ingresar fecha (dd/mm/yyyy):"></p>
+		<span th:errors="*{date}" ></span>
+		 <input type = "submit" value="Guardar Producto">
+     </form>	
+	
+
+
+</body>
+</html>
